@@ -20,4 +20,6 @@ import dongne1.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',dongne1.views.index,name='index'),
+    path('signup/', accounts.views.signup, name='signup'),
+    path('login/', accounts.views.login, name='login'),
 ]
