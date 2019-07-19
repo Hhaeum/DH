@@ -1,30 +1,33 @@
 <style>
-
-    </style>
-    <head>
+body{
+    margin:50px;
+    padding:20px;
+}
+</style>
+<head>
     
-    </head>
-    <body>
-        <div class="container">
-            <center>
-                <form action="{%url 'signup'%}" method="post">
-                    {%csrf_token%}
-                    username:
-                    <br>
-                    <input name="username" type="text" value="">
-                    <br>
-                    password1:
-                    <br>
-                    <input name="password1" type="password" value="">
-                    <br>
-                    password2:
-                    <br>
-                    <input name="password2" type="password" value="">
-                    <br>
-                    <br>
-                    <input class="btn btn-primary" type="submit" value="Sign Up!">
-                </form>
+</head>
+<body>
+    <div class="container">
+        <center>
+            <form action="{%url 'signup'%}" method="post">
+                {%csrf_token%}
+                username:
+                <br>
+                <input name="username" type="text" value="">
+                <br>
+                password1:
+                <br>
+                <input name="password1" type="password" value="">
+                <br>
+                password2:
+                <br>
+                <input name="password2" type="password" value="">
+                <br>
+                <br>
+                <input class="btn btn-primary" type="submit" value="Sign Up!">
+            </form>
 
-            </center>
-        </div>
-    </body>
+        </center>
+    </div>
+</body>
