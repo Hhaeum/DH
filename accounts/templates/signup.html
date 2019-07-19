@@ -7,9 +7,6 @@
     <body>
         <div class="container">
             <center>
-                {% extends 'base.html' %}
-
-                    {% block content %}
                 <form action="{%url 'signup'%}" method="post">
                     {%csrf_token%}
                     username:
@@ -27,7 +24,7 @@
                     <br>
                     <input class="btn btn-primary" type="submit" value="Sign Up!">
                 </form>
-                {% endblock %}
+
             </center>
         </div>
     </body>
