@@ -25,8 +25,7 @@
     var infowindow = new naver.maps.InfoWindow();
 
     function onSuccessGeolocation(position) {
-        var location = new naver.maps.LatLng(position.coords.latitude,
-            position.coords.longitude);
+        var location = new naver.maps.LatLng(35.8714438,128.6016735);//position.coords.latitude, position.coords.longitude
         var map = new naver.maps.Map('map', {
             center: location,
             zoom: 10,
