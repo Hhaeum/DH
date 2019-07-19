@@ -16,9 +16,8 @@ class Profile(models.Model):
     nickname=models.CharField(max_length=50,blank=True)
 
 class Comment(models.Model):
-    post=models.ForeignKey(Post,on_delete=models.CASCADE)
+    blog=models.ForeignKey(Blog,on_delete=models.CASCADE)
     user=models.ForeignKey(User,on_delete=models.CASCADE)
     content=models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add= True)
     updated_at = models.DateTimeField(auto_now = True)
-# Create your models here.
