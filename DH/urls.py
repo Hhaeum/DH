@@ -23,5 +23,7 @@ urlpatterns = [
     path('',dongne1.views.index,name='index'),
     path('signup/', accounts.views.signup, name='signup'),
     path('login/', accounts.views.login, name='login'),
+    path('logout/', accounts.views.logout, name='logout'),
     path('daegu/',dongne1.views.daegu,name='daegu'),
+    path('CService/',dongne1.views.CService,name='CService'),
 ]
