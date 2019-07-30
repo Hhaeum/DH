@@ -30,4 +30,5 @@ urlpatterns = [
     path('CService/',dongne1.views.CService,name='CService'),
     path('CScreate/',dongne1.views.CScreate,name='CScreate'),
     path('CSread/<int:post_id>',dongne1.views.CSread,name='CSread'),
+    path('read/<int:post_id>/',dongne1.views.read,name='read'),
 ]

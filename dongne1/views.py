@@ -21,9 +21,14 @@ def create(request):
         post.title = request.POST['title']
         post.content = request.POST['content'] 
         post.save()
-
         return redirect(index)
 
+def read(request,post_id): 
+    post = Blog.objects.get(id = post_id)
+    context={
+        "post":post
+    }
+    return render(request,'read.html',context)
 
 def CService(request): 
     posts = Blog.objects.all()
