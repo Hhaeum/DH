@@ -27,4 +27,5 @@ urlpatterns = [
     path('daegu/',dongne1.views.daegu,name='daegu'),
     path('gyeongsan/',dongne1.views.gyeongsan,name='gyeongsan'),
     path('CService/',dongne1.views.CService,name='CService'),
+    path('CScreate/',dongne1.views.CScreate,name='CScreate'),
 ]

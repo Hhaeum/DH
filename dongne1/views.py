@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Blog
 from django.core.paginator import Paginator
 
@@ -21,4 +21,22 @@ def CService(request):
         "posts":posts,  
         }
     return render(request,"CService.html",context)
+
+def CScreate(request):
+    if request.method == "GET":
+        return render(request,'CScreate.html')
+
+    elif request.method == "POST":
+        post = Blog()
+        post.user=request.user
+        post.title = request.POST['title']
+        post.content = request.POST['content']
+        try:
+            post.pic=request.FILES['pic']
+        except:
+            pass
+        post.category=request.POST['category']
+        post.save()
+
+        return redirect(index)
 # Create your views here.
