@@ -9,6 +9,9 @@ def index(request):
 def daegu(request):
     return render(request,'daegu.html')
 
+def gyeongsan(request):
+    return render(request,'gyeongsan.html')
+
 def CService(request): 
     posts = Blog.objects.all()
     paginator = Paginator(posts,1) 
