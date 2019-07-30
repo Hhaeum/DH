@@ -35,12 +35,12 @@
             position: location,
             map: map
         });
-        infowindow.setContent('<a href="read.html/?lat='+position.coords.latitude+'&lng='+position.coords.longitude+'"'+'>글쓰기</a>');
+        infowindow.setContent('<a href="read.html/?lat='+position.coords.latitude+'&lng='+position.coords.longitude+'"'+'><a href="{%url 'create'%}">글쓰기</a>');
 
         infowindow.open(map, location);    
         naver.maps.Event.addListener(map, 'click', function (e) {
             marker.setPosition(e.coord);
-            infowindow.setContent('<a href="read.html/?lat='+e.coord._lat+'&lng='+e.coord._lng+'"'+'>글쓰기</a>');
+            infowindow.setContent('<a href="read.html/?lat='+e.coord._lat+'&lng='+e.coord._lng+'"'+'><a href="{%url 'create'%}">글쓰기</a>');
             infowindow.open(map, e.coord); 
             console.log('lng: ' + e.coord._lng);
             console.log('lat: ' + e.coord._lat);

@@ -12,6 +12,19 @@ def daegu(request):
 def gyeongsan(request):
     return render(request,'gyeongsan.html')
 
+def create(request): 
+    if request.method == "GET":
+        return render(request,'create.html')
+
+    elif request.method == "POST":
+        post = Blog()
+        post.title = request.POST['title']
+        post.content = request.POST['content'] 
+        post.save()
+
+        return redirect(index)
+
+
 def CService(request): 
     posts = Blog.objects.all()
     paginator = Paginator(posts,1) 
