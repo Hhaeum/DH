@@ -8,7 +8,7 @@ def daegu(request):
     return render(request,'daegu.html')
 
 def CService(request): 
-    posts = Blog.objects.all()
+    posts = DH.objects.all()
     paginator = Paginator(posts,1) 
     now_page = request.GET.get('page')
     posts = paginator.get_page(now_page) 
