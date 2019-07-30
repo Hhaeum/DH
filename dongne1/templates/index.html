@@ -34,17 +34,15 @@
       <a class="navbar-brand" href="#"><img src="{% static 'DH1.png' %}"></img></a>
       <right>
         {% if user.is_authenticated %}
-        <a class="btn btn-primary">
-          <form action="{%url 'logout'%}" method="POST">
-            {%csrf_token%}
-          </form>
-          로그아웃
-        </a>
+        <form action="{%url 'logout'%}" method="POST" >
+          {%csrf_token%}
+          <input type="submit" class="btn btn-primary" value="로그아웃">
+          <a class="btn btn-primary" href="{% url 'CService' %}">고객센터</a>
+        </form>
         {% else %}
           <a class="btn btn-primary" href="{% url 'signup'%}">Sign In</a>
           <a class="btn btn-primary" href="{% url 'login'%}">Log In</a>
         {% endif %}
-      <a class="btn btn-primary" href="{% url 'CService' %}">고객센터</a>
     </right>
     </div>
   </nav>
