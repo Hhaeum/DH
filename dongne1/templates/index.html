@@ -35,13 +35,12 @@
       <right>
         {% if user.is_authenticated %}
         <form action="{%url 'logout'%}" method="POST" >
-          {%csrf_token%}
-          <input type="submit" class="btn btn-primary" value="로그아웃">
-          <a class="btn btn-primary" href="{% url 'CService' %}">고객센터</a>
+          <a class="d" href="{% url 'logout' %}">로그아웃</a>
+          <a class="d" href="{% url 'CService' %}">고객센터</a>
         </form>
         {% else %}
-          <a class="btn btn-primary" href="{% url 'signup'%}">회원가입</a>
-          <a class="btn btn-primary" href="{% url 'login'%}">로그인</a>
+          <a class="d" href="{% url 'signup'%}">회원가입</a>
+          <a class="d" href="{% url 'login'%}">로그인</a>
         {% endif %}
     </right>
     </div>
@@ -205,6 +204,13 @@
   @import url('https://fonts.googleapis.com/css?family=Nanum+Brush+Script&display=swap');
   @import url('https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap');
   @import url('https://fonts.googleapis.com/css?family=Poor+Story&display=swap');
+  @import url('https://fonts.googleapis.com/css?family=Gothic+A1&display=swap');
+  a.d{
+    font-family: 'Gothic A1', sans-serif;
+    color : black;
+    font-size: 20px;
+    margin-right: 7px;
+  }
   p.a{
     font-size:80px;
     margin-top: 50px;
