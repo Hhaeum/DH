@@ -39,4 +39,11 @@ def CScreate(request):
         post.save()
 
         return render(request,'CService.html')
+
+def CSread(request,post_id): 
+    post = Blog.objects.get(id = post_id)
+    context={
+        "post":post
+    }
+    return render(request,'CSread.html',context)
 # Create your views here.
