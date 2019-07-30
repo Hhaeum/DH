@@ -35,5 +35,5 @@ def CScreate(request):
         post.category=request.POST['category']
         post.save()
 
-        return redirect(index)
+        return render(request,'CService.html')
 # Create your views here.
