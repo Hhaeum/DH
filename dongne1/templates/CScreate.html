@@ -1,0 +1,16 @@
+<h1>고객센터 글쓰기 페이지</h1>
+
+<form action="{%url 'CScreate'%}" method="post" enctype="multipart/form-data">
+    {%csrf_token%}
+    <p>글제목</p>
+    <input type="text" name="title">
+    <p>글내용</p>
+    <textarea name="content" cols="30" rows="10"></textarea>
+    <input type="submit" value="글쓰기">
+    <input type="file" name="pic">
+
+    <select name="category">
+            <option value="공지">문의</option>
+            <option value="자유">신고</option>
+        </select>
+</form>

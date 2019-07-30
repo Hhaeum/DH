@@ -26,4 +26,5 @@ urlpatterns = [
     path('logout/', accounts.views.logout, name='logout'),
     path('daegu/',dongne1.views.daegu,name='daegu'),
     path('CService/',dongne1.views.CService,name='CService'),
+    path('CScreate/',dongne1.views.CScreate,name='CScreate'),
 ]
