@@ -20,6 +20,7 @@
 </style>
 
 <div id="wrap" class="section">
+    <a href="{%url 'index'%}"><img src="/static/DH1.png"></img></a><br/>
     <h2>동네 한바퀴 | 대구광역시</h2>
     <p>우리 동네 대구광역시의 핫플레이스와 나만 알고있는 숨은 동네 장소를 소개해주세요!</p>
     <div id="map" style="width:100%;height:600px;">
@@ -54,6 +55,7 @@ var marker = new naver.maps.Marker({
         });
 map.setCursor('pointer');
 
+
 function searchCoordinateToAddress(latlng) {
 
     infoWindow.close();
@@ -84,6 +86,7 @@ function searchCoordinateToAddress(latlng) {
         infoWindow.setContent([
             '<div style="padding:10px;min-width:200px;line-height:150%;">',
             '<h4 style="margin-top:5px;">검색 좌표</h4><br />',
+            '<a href="{%url 'create'%}">글쓰기</a><br />',
             htmlAddresses.join('<br />'),
             '</div>'
         ].join('\n'));
@@ -123,6 +126,7 @@ function searchAddressToCoordinate(address) {
         infoWindow.setContent([
             '<div style="padding:10px;min-width:200px;line-height:150%;">',
             '<h4 style="margin-top:5px;">검색 주소 : '+ address +'</h4><br />',
+            '<a href="{%url 'create'%}">글쓰기</a><br>',
             htmlAddresses.join('<br />'),
             '</div>',
         ].join('\n'));
