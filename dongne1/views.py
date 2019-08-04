@@ -31,7 +31,7 @@ def read(request,post_id):
     return render(request,'read.html',context)
 
 def CService(request): 
-    posts = Blog.objects.all()
+    posts = dongne1.objects.all()
     paginator = Paginator(posts,1) 
     now_page = request.GET.get('page')
     posts = paginator.get_page(now_page)
