@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Blog
+from .models import dongne1
 from django.core.paginator import Paginator
 
 def index(request):
@@ -17,14 +17,14 @@ def create(request):
         return render(request,'create.html')
 
     elif request.method == "POST":
-        post = Blog()
+        post = dongne1()
         post.title = request.POST['title']
         post.content = request.POST['content'] 
         post.save()
         return redirect(index)
 
 def read(request,post_id): 
-    post = Blog.objects.get(id = post_id)
+    post = dongne1.objects.get(id = post_id)
     context={
         "post":post
     }
