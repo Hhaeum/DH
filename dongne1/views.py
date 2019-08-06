@@ -36,12 +36,12 @@ def read(request,post_id):
     return render(request,'read.html',context)
 
 def CService(request): 
-    posts = Dongne1.objects.all()
-    paginator = Paginator(posts,1) 
+    posts1 = Dongne1.objects.all()
+    paginator = Paginator(posts1,1) 
     now_page = request.GET.get('page')
-    posts = paginator.get_page(now_page)
-    context={ 
-        "posts":posts,  
+    posts1 = paginator.get_page(now_page)
+    context1={ 
+        "posts1":posts1,  
         }
     return render(request,"CService.html",context)
 
@@ -50,7 +50,7 @@ def CScreate(request):
         return render(request,'CScreate.html')
 
     elif request.method == "POST":
-        post1 = dongne1()
+        post1 = Dongne1()
         post1.user=request.user
         post1.title = request.POST['title']
         post1.content = request.POST['content']
@@ -64,7 +64,7 @@ def CScreate(request):
         return render(request,'CService.html')
 
 def CSread(request,post_id): 
-    post = Blog.objects.get(id = post_id)
+    post = dongne1.objects.get(id = post_id)
     context={
         "post":post
     }
