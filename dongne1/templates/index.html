@@ -31,7 +31,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-light bg-light static-top">
     <div class="container">
-      <a class="navbar-brand" href="#"><img src="{% static 'DH1.png' %}"></img></a>
+      <a class="navbar-brand" href="/"><img src="{% static 'DH1.png' %}"></img></a>
       <right>
         {% if user.is_authenticated %}
         <form action="{%url 'logout'%}" method="POST" >
@@ -120,7 +120,7 @@
         <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
           <ul class="list-inline mb-0">
             <li class="list-inline-item mr-3">
-              <a href="#">
+              <a href="https://www.facebook.com/likelion.yu/">
                 <i class="fab fa-facebook fa-2x fa-fw"></i>
               </a>
             </li>

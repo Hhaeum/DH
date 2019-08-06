@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-class Blog(models.Model):
+class dongne1(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     title = models.CharField(max_length = 200)
     content = models.TextField(blank = True)
@@ -16,7 +16,7 @@ class Profile(models.Model):
     nickname=models.CharField(max_length=50,blank=True)
 
 class Comment(models.Model):
-    blog=models.ForeignKey(Blog,on_delete=models.CASCADE)
+    dongne1=models.ForeignKey(dongne1,on_delete=models.CASCADE)
     user=models.ForeignKey(User,on_delete=models.CASCADE)
     content=models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add= True)

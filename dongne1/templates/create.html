@@ -1,3 +1,4 @@
+<a href="{%url 'index'%}"><img src="/static/DH1.png"></img></a><br/>
 <h1>글쓰기 페이지</h1>
 
 <form action="{%url 'create'%}" method="post">
@@ -5,6 +6,12 @@
     <p>글제목</p>
     <input type="text" name="title">
     <p>글내용</p>
-    <textarea name="content" cols="30" rows="10"></textarea>
-    <input type="submit" value="글쓰기">
+    <textarea name="content" cols="30" rows="10"></textarea><br>
+    <input type="file" name="pic">
+
+    <select name="category">
+            <option value="대구광역시">대구광역시</option>
+            <option value="경산">경산시</option>
+        </select>
+        <br><input type="submit" value="글쓰기">
 </form>
