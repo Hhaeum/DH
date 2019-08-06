@@ -40,7 +40,7 @@ def CService(request):
     paginator = Paginator(posts1,1) 
     now_page = request.GET.get('page')
     posts1 = paginator.get_page(now_page)
-    context1={ 
+    context={ 
         "posts1":posts1,  
         }
     return render(request,"CService.html",context)
@@ -64,7 +64,7 @@ def CScreate(request):
         return render(request,'CService.html')
 
 def CSread(request,post_id): 
-    post = dongne1.objects.get(id = post_id)
+    post = Dongne1.objects.get(id = post_id)
     context={
         "post":post
     }
