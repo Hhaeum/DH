@@ -1,5 +1,4 @@
-{% load staticfiles %}
-<!doctype>
+
 <html>
 <head>
     <meta charset="utf-8">
@@ -49,7 +48,7 @@
 <body>
     <div class="container">
         <header>
-            {{post.title}}
+            <h1>평리5동</h1>
         </header>
         <section class="content">
             <nav>
@@ -60,18 +59,28 @@
                     <li>평리4동</li>
                     <li><font color="blue"><h3>평리5동</h3></font></li>
                     <li>평리6동</li>
+
                 </ul>
             </nav>
-            <main >
-                {%if post.pic%}
-                <img src="{{post.pic.url}}"> 
-                {%endif%}
-                {{post.content}}
+            <main>
+
+
+
+                {{post.pic}}
+                <p>글 제목 : </p>
+
+                {{post.title}}
+                <p>글 내용</p>
+                {{post.content|linebreaksbr}}
+                <a href="/"><button type="button" class="btn btn-outline-primary">돌아가기</button></a>
+
             </main>
-            <aside></aside>
+            <!-- <aside> -->
+
+            <!-- </aside> -->
         </section>
         <footer>
-            <a href="/"><button type="button" class="btn btn-outline-primary">돌아가기</button></a>
+            <a href="https://opentutorials.org/course/1"><h2>홈페이지</h2></a>
         </footer>
     </div>
 </body>

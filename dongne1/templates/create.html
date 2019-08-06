@@ -1,7 +1,8 @@
+<!doctype>
 <a href="{%url 'index'%}"><img src="/static/DH1.png"></img></a><br/>
 <h1>글쓰기 페이지</h1>
 
-<form action="{%url 'create'%}" method="post" enctype="multipart/form-data">
+<form action="{%url 'create'%}" method="post">
     {%csrf_token%}
     <p>글제목</p>
     <input type="text" name="title">
