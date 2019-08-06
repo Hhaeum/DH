@@ -50,16 +50,16 @@ def CScreate(request):
         return render(request,'CScreate.html')
 
     elif request.method == "POST":
-        post = dongne1()
-        post.user=request.user
-        post.title = request.POST['title']
-        post.content = request.POST['content']
+        post1 = dongne1()
+        post1.user=request.user
+        post1.title = request.POST['title']
+        post1.content = request.POST['content']
         try:
-            post.pic=request.FILES['pic']
+            post1.pic=request.FILES['pic']
         except:
             pass
-        post.category=request.POST['category']
-        post.save()
+        post1.category=request.POST['category']
+        post1.save()
 
         return render(request,'CService.html')
 
