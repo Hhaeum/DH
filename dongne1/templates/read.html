@@ -1,6 +1,78 @@
-<p>글 제목 : {{post.title}}</p>
-<p>글쓴이 : {{post.user}}</p>
-<p>글 내용</p>
-{{post.content|linebreaksbr}}
-<br>
-<a href="/"><button type="button" class="btn btn-outline-primary">돌아가기</button></a>
+{% load staticfiles %}
+<!doctype>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        .container{           /*이것이 전체를 아우르는 코드*/
+            display: flex;    /*전체를 div로 묶었다*/
+            flex-direction: column;
+        }
+        header{
+            border-bottom:5px solid gray;
+            padding-left:40px;
+            background-color:rgb( 32 178 170) ;
+        }
+        footer{
+            border-top:5px solid gray;
+            padding:;
+            text-align: center;
+        }
+        .content{
+            display:flex; /*섹션 쪽을 총괄한다.*/
+        }
+        .content nav{
+            border-right:1px solid gray;
+        }
+        .content aside{
+            border-left:1px solid gray;
+        }
+        nav, aside{
+            flex-basis: 150px;
+            flex-shrink: 0;
+            background-color:rgb(224 255 255)
+        }
+        main{
+            padding:20px;
+            font-size:30px;
+            background-color:rgb(224 255 255)
+        }
+        .구{
+            color:blue;
+        }
+        img{
+            width:1200px;
+            float:left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            {{post.title}}
+        </header>
+        <section class="content">
+            <nav>
+                <ul><h1 class="구">서구</h1>
+                    <li>평리1동</li>
+                    <li>평리2동</li>
+                    <li>평리3동</li>
+                    <li>평리4동</li>
+                    <li><font color="blue"><h3>평리5동</h3></font></li>
+                    <li>평리6동</li>
+                </ul>
+            </nav>
+            <main >
+                {%if post.pic%}
+                <img src="{{post.pic.url}}"> 
+                {%endif%}
+                {{post.content}}
+            </main>
+            <aside></aside>
+        </section>
+        <footer>
+            <a href="/"><button type="button" class="btn btn-outline-primary">돌아가기</button></a>
+        </footer>
+    </div>
+</body>
+</html>

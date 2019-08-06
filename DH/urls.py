@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path
 import dongne1.views
 import accounts.views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,4 +33,4 @@ urlpatterns = [
     path('CScreate/',dongne1.views.CScreate,name='CScreate'),
     path('CSread/<int:post_id>',dongne1.views.CSread,name='CSread'),
     path('read/<int:post_id>/',dongne1.views.read,name='read'),
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
