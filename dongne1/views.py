@@ -45,7 +45,7 @@ def CScreate(request):
         return render(request,'CScreate.html')
 
     elif request.method == "POST":
-        post = Blog()
+        post = dongne1()
         post.user=request.user
         post.title = request.POST['title']
         post.content = request.POST['content']
