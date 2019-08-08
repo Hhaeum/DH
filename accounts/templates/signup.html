@@ -2,22 +2,29 @@
 body{
     margin:50px;
     padding:20px;
+    
 }
 #border_box{
-    margin:20px;
     padding:10px;
+    margin:20px;
+    width:300px;
+    height:300px;
+    border:10px black;
+    border-style: solid solid solid solid;
+    border-width: 3px 3px 3px 3px;
+    border-color:black black black black;
 }
+
 </style>
 <head>
     
 </head>
 <body>
     <div class="container" align='center'>
-
-            <h1>회원가입</h1>
             <form action="{%url 'signup'%}" method="post">
                 {%csrf_token%}
                 <div id="border_box">
+                    <h1>회원가입</h1>
                     <div align="rignt">
                         아이디  
                         <input name="username" type="text" value="">

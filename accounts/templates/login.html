@@ -1,7 +1,24 @@
+<style>
+    body{
+        margin:50px;
+        padding:20px;    
+    }
+    div{
+        width:300px;
+        height:300px;
+        border:10px black;
+        border-style: solid solid solid solid;
+        border-width: 3px 3px 3px 3px;
+        border-color:black black black black;
+        padding:10px;
+        margin:20px;
+    }
+</style>
+
 <body>
     <center>
         <div class="container">
-            <h1>Login</h1>
+            <h1>로그인</h1>
             {% if error %}
                 {{ error }}
                 <br>
@@ -9,11 +26,11 @@
             {% endif %}
                 <form method="POST" action="{% url 'login'%}">
                     {% csrf_token %}
-                    Username:
+                    아이디:
                     <br>
                     <input name="username" type="text" value="">
                     <br>
-                    Password:
+                    비밀번호:
                     <br>
                     <input name="password" type="password" value="">
                     <br>
@@ -26,4 +43,7 @@
     <a class="btn btn-primary" href="{% url 'signup'%}">회원가입</a>
     </center>
 </body>
+<center>
+        <img src="/static/DH2.png">
+</center>
 
