@@ -8,6 +8,7 @@ class Dongne1(models.Model):
     created_at = models.DateField(auto_now_add= True)
     updated_at = models.DateField(auto_now = True)
     category = models.CharField(max_length=50,blank=True)
+    category2 = models.CharField(max_length=50,blank=True)
     pic=models.ImageField(upload_to="image/",null=True)
     lat = models.FloatField(blank=True)
     lng = models.FloatField(blank=True)
