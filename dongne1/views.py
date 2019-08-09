@@ -1,9 +1,5 @@
 from django.shortcuts import render, redirect
 from .models import Dongne1
-<<<<<<< HEAD
-
-=======
->>>>>>> 013213c574764cb132bde0fab52295567ccc6ea7
 from .models import Dongne2
 from django.core.paginator import Paginator
 
@@ -46,13 +42,8 @@ def read(request,post_id):
     return render(request,'read.html',context)
 
 def CService(request): 
-<<<<<<< HEAD
-    posts1 = Dongne2()
-    paginator = Paginator(posts1,5) 
-=======
     post = Dongne2.objects.all()
     paginator = Paginator(post,5) 
->>>>>>> 013213c574764cb132bde0fab52295567ccc6ea7
     now_page = request.GET.get('page')
     post = paginator.get_page(now_page)
     context={ 
