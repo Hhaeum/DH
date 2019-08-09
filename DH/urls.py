@@ -33,4 +33,6 @@ urlpatterns = [
     path('CScreate/',dongne1.views.CScreate,name='CScreate'),
     path('CSread/<int:post_id>',dongne1.views.CSread,name='CSread'),
     path('read/<int:post_id>/',dongne1.views.read,name='read'),
+    path('CSupdate/<int:post_id>',dongne1.views.CSupdate,name='CSupdate'),
+    path('CSdelete/<int:post_id>',dongne1.views.CSdelete,name='CSdelete'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
