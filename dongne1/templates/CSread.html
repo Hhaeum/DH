@@ -13,22 +13,24 @@
         </style>
 
 <img src="/static/DH3.png">
-<h3>제목 | {{post.title}}</h3>
-{%if post.anonymous == True%}
+<h3>제목 | {{post.title2}}</h3>
+{%if post.anonymous2 == True%}
         <p>글쓴이 | 익명</p>
     {%else%}
         <p>글쓴이 | {{post.user}}</p>
     {%endif%}
 
-<div>{{post.content|linebreaksbr}}
-        {%if post.pic%}
-        <img src="{{post.pic.url}}"> 
-    {%endif%}
+<div>
+        {%if post.pic2%}
+        <img src="{{post.pic2.url}}"> 
+        <br>
+        {%endif%}
+        {{post.content2|linebreaksbr}}
 </div>
 <br>
 <br>
 <br>
-{% if request.user == post.user or requewt.user.is_staff %}
+{% if request2.user == post2.user or requewt.user.is_staff %}
     <a href="{%url 'CSupdate' post.id%}"><button type="button">수정하기</button></a>
     <a href="{%url 'CSdelete' post.id%}"><button type="button">삭제하기</button></a>
     {%endif%}

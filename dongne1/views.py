@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Dongne1
+from .models import Dongne2
 from django.core.paginator import Paginator
 
 def index(request):
@@ -45,12 +46,12 @@ def read(request,post_id):
     return render(request,'read.html',context)
 
 def CService(request): 
-    posts1 = Dongne1.objects.all()
-    paginator = Paginator(posts1,5) 
+    post = Dongne2.objects.all()
+    paginator = Paginator(post,5) 
     now_page = request.GET.get('page')
-    posts1 = paginator.get_page(now_page)
+    post = paginator.get_page(now_page)
     context={ 
-        "posts1":posts1,  
+        "post":post,  
         }
     return render(request,"CService.html",context)
 
@@ -59,24 +60,24 @@ def CScreate(request):
         return render(request,'CScreate.html')
 
     elif request.method == "POST":
-        post1 = Dongne1()
-        post1.user=request.user
-        post1.title = request.POST['title']
-        post1.content = request.POST['content']
+        post = Dongne2()
+        post.user=request.user
+        post.title2 = request.POST['title']
+        post.content2 = request.POST['content']
         anonymous = request.POST.get('anonymous',False)  
         if anonymous == "y":
-            post1.anonymous = True
+            post.anonymous2 = True
         try:
-            post1.pic=request.FILES['pic']
+            post.pic2=request.FILES['pic']
         except:
             pass
-        post1.category=request.POST['category']
-        post1.save()
+        post.category2=request.POST['category']
+        post.save()
 
         return render(request,'index.html')
 
 def CSread(request,post_id): 
-    post = Dongne1.objects.get(id = post_id)
+    post = Dongne2.objects.get(id = post_id)
     context={
         "post":post
     }
@@ -84,14 +85,14 @@ def CSread(request,post_id):
 
 def CSupdate(request,post_id):  
     if request.method == "GET":
-        post = Dongne1.objects.get(id = post_id)
+        post = Dongne2.objects.get(id = post_id)
         context = {
             "post":post,
         }
         return render(request,'CSupdate.html',context)
 
     elif request.method == "POST":
-        post = Dongne1.objects.get(id = post_id)
+        post = Dongne2.objects.get(id = post_id)
         post.title = request.POST['title']
         post.content = request.POST['content']
         post.category=request.POST['category']
@@ -100,7 +101,7 @@ def CSupdate(request,post_id):
         return redirect(index)
 
 def CSdelete(request,post_id):
-    post = Dongne1.objects.get(id=post_id)
+    post = Dongne2.objects.get(id=post_id)
     post.delete()
     return redirect(index)
 # Create your views here.
