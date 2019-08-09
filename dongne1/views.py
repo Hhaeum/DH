@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Dongne1
+from .models import Dongne2
 from django.core.paginator import Paginator
 
 def index(request):
@@ -41,12 +42,12 @@ def read(request,post_id):
     return render(request,'read.html',context)
 
 def CService(request): 
-    posts1 = Dongne2.objects.all()
-    paginator = Paginator(posts1,5) 
+    post = Dongne2.objects.all()
+    paginator = Paginator(post,5) 
     now_page = request.GET.get('page')
-    posts1 = paginator.get_page(now_page)
+    post = paginator.get_page(now_page)
     context={ 
-        "posts1":posts1,  
+        "post":post,  
         }
     return render(request,"CService.html",context)
 
@@ -55,19 +56,19 @@ def CScreate(request):
         return render(request,'CScreate.html')
 
     elif request.method == "POST":
-        post1 = Dongne2()
-        post1.user=request.user
-        post1.title = request.POST['title']
-        post1.content = request.POST['content']
+        post = Dongne2()
+        post.user=request.user
+        post.title = request.POST['title']
+        post.content = request.POST['content']
         anonymous = request.POST.get('anonymous',False)  
         if anonymous == "y":
-            post1.anonymous = True
+            post.anonymous = True
         try:
-            post1.pic=request.FILES['pic']
+            post.pic=request.FILES['pic']
         except:
             pass
-        post1.category=request.POST['category']
-        post1.save()
+        post.category=request.POST['category']
+        post.save()
 
         return render(request,'index.html')
 

@@ -10,9 +10,9 @@
 <img src="/static/DH3.png">
 <br>
 <br>
-{% for p in posts1 %}
-    <p>글 번호: {{p.pk}} | {{p.category}} | 작성 시간: {{p.created_at}}</p>
-    <a href="{%url 'CSread' p.id %}"><p>제목: {{p.title}}</a>
+{% for p in post %}
+    <p>글 번호: {{p.pk}} | {{p.category2}} | 작성 시간: {{p.created_at2}}</p>
+    <a href="{%url 'CSread' p.id %}"><p>제목: {{p.title2}}</a>
     <hr>
 {% endfor %}
 
