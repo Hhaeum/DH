@@ -60,7 +60,7 @@
     <script id="code">
             var position = new naver.maps.LatLng(35.871465, 128.601731);
             var map = new naver.maps.Map("map", {
-                center:new naver.maps.LatLng(35.871465, 128.601731),
+                center:position,
                 zoom: 10,
                 mapTypeControl: true
             });
@@ -73,11 +73,28 @@
                 position: position,
                 map: map
             }); 
+
+            markers = new Array()
+            infoWindows = new Array()
+
+            {%for p in post%}
+                var post_position = new naver.maps.LatLng({{p.lat}}, {{p.lng}});
+
+                var post_marker = new naver.maps.Marker({
+                    position: post_position,
+                    map: map,
+                }); 
+                var post_infoWindow = new naver.maps.InfoWindow({
+                    content: '<div style="width:150px;text-align:center;padding:10px;"><a href="{%url 'read' p.id %}">글보기</a>' +'</div>'
+                });
+                
+                infoWindows.push(post_infoWindow);
+                markers.push(post_marker);
+            {%endfor%}
             
             map.setCursor('pointer');
             
             function searchCoordinateToAddress(latlng) {
-            
                 infoWindow.close();
             
                 naver.maps.Service.reverseGeocode({
@@ -105,8 +122,8 @@
             
                     infoWindow.setContent([
                         '<div style="padding:10px;min-width:200px;line-height:150%;">',
-                        '<h4 style="margin-top:5px;">검색 좌표</h4><br />',
-                        '<a href="/create?lat='+latlng._lat+'&lng='+latlng._lng+'">글쓰기</a><br>',
+                        '<h4 style=0"margin-top:5px;">검색 좌표</h4><br />',
+                        '<a href="/create?lat='+latlng._lat+'&lng='+latlng._lng+'">글쓰기</a><br />',
                         htmlAddresses.join('<br />'),
                         '</div>'
                     ].join('\n'));
@@ -145,8 +162,8 @@
             
                     infoWindow.setContent([
                         '<div style="padding:10px;min-width:200px;line-height:150%;">',
-                        '<h4 style="margin-top:5px;">검색 주소 : '+ address +'</h4><br />',
-                        '<a href="/create?lat='+item.x+'&lng='+item.y+'">글쓰기</a><br>',
+                        '<h4 style="margin-top:5px;">검색 주소 : '+ address +'</h4><br/>',
+                        '<a href="/create?lat='+item.x+'&lng='+item.y+'">글쓰기</a>',
                         htmlAddresses.join('<br />'),
                         '</div>'
                     ].join('\n'));
@@ -254,6 +271,59 @@
             }
             
             naver.maps.onJSContentLoaded = initGeocoder;
+
+            naver.maps.Event.addListener(map, 'idle', function() {
+                updateMarkers(map, markers);
+            });
+            
+            function updateMarkers(map, markers) {
+            
+                var mapBounds = map.getBounds();
+                var marker, position;
+            
+                for (var i = 0; i < markers.length; i++) {
+            
+                    marker = markers[i]
+                    position = marker.getPosition();
+            
+                    if (mapBounds.hasLatLng(position)) {
+                        showMarker(map, marker);
+                    } else {
+                        hideMarker(map, marker);
+                    }
+                }
+            }
+            
+            function showMarker(map, marker) {
+            
+                if (marker.setMap()) return;
+                marker.setMap(map);
+            }
+            
+            function hideMarker(map, marker) {
+            
+                if (!marker.setMap()) return;
+                marker.setMap(null);
+            }
+            
+            // 해당 마커의 인덱스를 seq라는 클로저 변수로 저장하는 이벤트 핸들러를 반환합니다.
+            function getClickHandler(seq) {
+                return function(e) {
+                    var marker = markers[seq],
+                        infoWindow = infoWindows[seq];
+            
+                    if (infoWindow.getMap()) {
+                        infoWindow.close();
+                    } else {
+                        infoWindow.open(map, marker);
+                    }
+                }
+            }
+            
+            for (var i=0, ii=markers.length; i<ii; i++) {
+                naver.maps.Event.addListener(markers[i], 'click', getClickHandler(i));
+            }
+            
             
 /*
         var marker_list = new Array();

@@ -8,7 +8,11 @@ def index(request):
     return render(request,'index.html')
 
 def daegu(request):
-    return render(request,'daegu.html')
+    post = Dongne1.objects.all()
+    context={
+        "post":post,
+    }
+    return render(request,'daegu.html',context)
 
 def gyeongsan(request):
     return render(request,'gyeongsan.html')
