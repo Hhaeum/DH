@@ -15,7 +15,12 @@ def daegu(request):
     return render(request,'daegu.html',context)
 
 def gyeongsan(request):
-    return render(request,'gyeongsan.html')
+    post = Dongne1.objects.all()
+    context={
+        "post":post,
+    }
+    return render(request,'gyeongsan.html',context)
+
 
 def create(request): 
     if request.method == "GET":
