@@ -1,24 +1,32 @@
 <style>
     body{
         margin:50px;
-        padding:20px;            
+        padding:20px;          
     }
     div{
+        border:10px black;
+        border-style: ridge none solid none;
+        border-width: 3px 3px 3px 3px;
+        border-color:black black black black;
 
     }
     </style>
 <img src="/static/DH3.png">
 <br>
-<br>
-{% for p in post %}
-    <p>글 번호: {{p.pk}} | {{p.category2}} | 작성 시간: {{p.created_at2}}</p>
-    <a href="{%url 'CSread' p.id %}"><p>제목: {{p.title2}}</a>
-    <hr>
-{% endfor %}
 
-<br>
-<br>
-<br>
-<a href="{%url 'index'%}"><button>돌아가기</button></a>
-<a href="{%url 'CScreate'%}"><button>글쓰기</button></a>
+<div>
+        {% for p in post %}
+        <p>글 번호: {{p.pk}} | {{p.category2}} | 작성 시간: {{p.created_at2}}</p>
+        <a href="{%url 'CSread' p.id %}"><p>제목: {{p.title2}}</a>
+        <hr>
+    {% endfor %}
+    
+    <br>
+
+    <a href="{%url 'index'%}"><button>돌아가기</button></a>
+    <a href="{%url 'CScreate'%}"><button>글쓰기</button></a>
+    <br>
+    <br>
+    <br>
+</div>
 
