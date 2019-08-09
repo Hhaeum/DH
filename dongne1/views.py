@@ -17,18 +17,12 @@ def create(request):
         return render(request,'create.html')
 
     elif request.method == "POST":
-        try:
-            post = Dongne1()
-            post.user = request.user
-            post.title = request.POST['title']
-            post.content = request.POST['content'] 
-            try:
-                post.pic = request.FILES['pic']
-            except:
-                pass
-            post.save()
-        except:
-            pass
+        post = Dongne1()
+        post.user = request.user
+        post.title = request.POST['title']
+        post.content = request.POST['content'] 
+        post.pic = request.FILES.get('pic','default')
+        post.save()
         return redirect('index')
 
 def read(request,post_id): 
