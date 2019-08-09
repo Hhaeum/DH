@@ -24,7 +24,7 @@ def create(request):
         try:
             post.pic = request.FILES['pic']
         except:
-            
+            pass
         post.save()
         return redirect('index')
 
