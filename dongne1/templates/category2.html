@@ -18,11 +18,11 @@
     <br><br><br>
     <div>
             {%for p in post%}
-            <p>글 번호 : {{p.id}}</p>
-            <p>카테고리 {{p.category}} </p>
+            <p>글 번호 | {{p.id}}</p>
+            <p>카테고리 | {{p.category}} </p>
             <a href="{%url 'read' p.id %}">{{p.title}}</a>
             <br>
-            <p>글 작성 시간 : {{p.created_at}}</p>
+            <p>글 작성 시간 | {{p.created_at}}</p>
             <hr>
         </div>
     {%endfor%}
