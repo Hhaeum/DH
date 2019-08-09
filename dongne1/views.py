@@ -14,6 +14,15 @@ def daegu(request):
     }
     return render(request,'daegu.html',context)
 
+def category2(request):
+
+    search_category2=request.GET['category2']
+    post=Dongne1.objects.filter(category2=search_category2)
+    context={
+        "post":post
+    }
+    return render(request,"category2.html",context)
+
 def gyeongsan(request):
     post = Dongne1.objects.all()
     context={
@@ -40,6 +49,7 @@ def create(request):
         post.pic = request.FILES.get('pic','default')
         post.lng = request.POST['lng'] 
         post.lat = request.POST['lat']
+        post.category=request.POST['category']
         post.category2 = request.POST['category2'] 
         post.save()
         return redirect('index')
