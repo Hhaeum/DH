@@ -85,7 +85,7 @@
                     map: map,
                 }); 
                 var post_infoWindow = new naver.maps.InfoWindow({
-                    content: '<div style="width:150px;text-align:center;padding:10px;"><a href="{%url 'read' p.id %}">글보기</a>' +'</div>'
+                    content: '<div style="width:150px;text-align:center;padding:10px;"><a href="{%url 'read' p.id %}">{{p.title}}</a>' +'</div>'
                 });
                 
                 infoWindows.push(post_infoWindow);
@@ -93,6 +93,7 @@
             {%endfor%}
             
             map.setCursor('pointer');
+            
             
             function searchCoordinateToAddress(latlng) {
                 infoWindow.close();
