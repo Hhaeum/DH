@@ -7,7 +7,7 @@
         width:300px;
         height:300px;
         border:10px black;
-        border-style: solid solid solid solid;
+        border-style: double none double none;
         border-width: 3px 3px 3px 3px;
         border-color:black black black black;
         padding:10px;
@@ -18,9 +18,11 @@
 <body>
     <center>
         <div class="container">
+            <br>
             <h1>로그인</h1>
             {% if error %}
                 {{ error }}
+                <br>
                 <br>
                 <br>
             {% endif %}
