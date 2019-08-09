@@ -11,6 +11,8 @@ class Dongne1(models.Model):
     anonymous = models.BooleanField(default=False)
     # user = models.ForeignKey(User,on_delete=models.CASCADE)
     pic=models.ImageField(upload_to="image/",null=True)
+    lat = models.FloatField(blank=True)
+    lng = models.FloatField(blank=True)
 
 class Profile(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
