@@ -8,7 +8,11 @@ def index(request):
     return render(request,'index.html')
 
 def daegu(request):
-    return render(request,'daegu.html')
+    post = Dongne1.objects.all()
+    context={
+        "post":post,
+    }
+    return render(request,'daegu.html',context)
 
 def gyeongsan(request):
     return render(request,'gyeongsan.html')
@@ -58,16 +62,16 @@ def CScreate(request):
     elif request.method == "POST":
         post = Dongne2()
         post.user=request.user
-        post.title = request.POST['title']
-        post.content = request.POST['content']
+        post.title2 = request.POST['title']
+        post.content2 = request.POST['content']
         anonymous = request.POST.get('anonymous',False)  
         if anonymous == "y":
-            post.anonymous = True
+            post.anonymous2 = True
         try:
-            post.pic=request.FILES['pic']
+            post.pic2=request.FILES['pic']
         except:
             pass
-        post.category=request.POST['category']
+        post.category2=request.POST['category']
         post.save()
 
         return render(request,'index.html')
