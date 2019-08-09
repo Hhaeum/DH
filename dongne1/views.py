@@ -18,7 +18,9 @@ def category2(request):
     search_category2=request.GET['category2']
     post=Dongne1.objects.filter(category2=search_category2)
     context={
-        "post":post
+        "post":post,
+        "search_category2":search_category2,
+
     }
     return render(request,"category2.html",context)
 
