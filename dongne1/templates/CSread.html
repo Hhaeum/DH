@@ -1,14 +1,28 @@
-<p>글 제목 : {{post.title}}</p>
+<style>
+        body{
+            margin:50px;
+            padding:20px;            
+        }
+        div{
+    
+        }
+        </style>
+
+<img src="/static/DH3.png">
+<h3>제목 | {{post.title}}</h3>
 {%if post.anonymous == True%}
-        <p>글쓴이 : 익명</p>
+        <p>글쓴이 | 익명</p>
     {%else%}
-        <p>글쓴이 : {{post.user}}</p>
+        <p>글쓴이 | {{post.user}}</p>
     {%endif%}
-<p>글 내용</p>
+<hr>
 {{post.content|linebreaksbr}}
 {%if post.pic%}
     <img src="{{post.pic.url}}"> 
 {%endif%}
+<br>
+<br>
+<hr>
 <br>
 {% if request.user == post.user or requewt.user.is_staff %}
     <a href="{%url 'CSupdate' post.id%}"><button type="button">수정하기</button></a>
