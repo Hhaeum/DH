@@ -17,17 +17,16 @@ def create(request):
         return render(request,'create.html')
 
     elif request.method == "POST":
-        try:
-            post = Dongne1()
-            post.user = request.user
-            post.title = request.POST['title']
-            post.content = request.POST['content'] 
-            if user is authenticated:
-                post.pic = request.FILES['pic']
-                post.save()
-            else:
-                return render(request,'create.html',{'error': '로그인을 해주세요.'})
-        return redirect('index')
+        post = Dongne1()
+        post.user = request.user
+        post.title = request.POST['title']
+        post.content = request.POST['content'] 
+        if user is authenticated:
+            post.pic = request.FILES['pic']
+            post.save()
+            return redirect('index')
+        else:
+            return render(request,'create.html',{'error': '로그인을 해주세요.'})
 
 
 def read(request,post_id): 
