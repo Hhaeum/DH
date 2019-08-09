@@ -15,7 +15,6 @@ def daegu(request):
     return render(request,'daegu.html',context)
 
 def category2(request):
-
     search_category2=request.GET['category2']
     post=Dongne1.objects.filter(category2=search_category2)
     context={
