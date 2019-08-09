@@ -71,10 +71,10 @@ def CScreate(request):
 
         return render(request,'index.html')
 
-def CSread(request,post1_id): 
-    post1 = Dongne1.objects.get(id = post1_id)
+def CSread(request,post_id): 
+    post = Dongne1.objects.get(id = post_id)
     context={
-        "post1":post1
+        "post":post
     }
     return render(request,'CSread.html',context)
 
