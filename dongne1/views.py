@@ -22,14 +22,13 @@ def create(request):
             post.user = request.user
             post.title = request.POST['title']
             post.content = request.POST['content'] 
-            try:
+            if user is authenticated:
                 post.pic = request.FILES['pic']
-            except:
-                pass
-            post.save()
-        except:
-            pass
-        return redirect('index')
+                post.save()
+                return redirect('index')
+            else:
+                return render(request,'create.html',{'error': '로그인을 해주세요.'})
+
 
 def read(request,post_id): 
     post = Dongne1.objects.get(id = post_id)
