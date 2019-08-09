@@ -9,7 +9,14 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script type="text/javascript"
         src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=l0loonaty6&amp;submodules=geocoder"></script>
-
+    <form action="{%url 'category2'%}">
+        <i class="fas fa-file-word"></i>
+        <select name="category2">
+            <option value="20세기">20세기</option>
+            <option value="21세기">21세기</option>
+        </select>
+        <input type="submit" value="분류">
+    </form>    
 </head>
 
 <body>
@@ -85,7 +92,7 @@
                     map: map,
                 }); 
                 var post_infoWindow = new naver.maps.InfoWindow({
-                    content: '<div style="width:150px;text-align:center;padding:10px;"><a href="{%url 'read' p.id %}">{{p.title}}{{post.pic.url}}</a>' +'</div>'
+                    content: '<div style="width:150px;text-align:center;padding:10px;"><a href="{%url 'read' p.id %}">{{p.title}}</a></div>'
                 });
                 
                 infoWindows.push(post_infoWindow);
@@ -93,6 +100,7 @@
             {%endfor%}
             
             map.setCursor('pointer');
+            
             
             function searchCoordinateToAddress(latlng) {
                 infoWindow.close();

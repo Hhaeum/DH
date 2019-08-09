@@ -39,7 +39,8 @@ def create(request):
         post.content = request.POST['content'] 
         post.pic = request.FILES.get('pic','default')
         post.lng = request.POST['lng'] 
-        post.lat = request.POST['lat'] 
+        post.lat = request.POST['lat']
+        post.category2 = request.POST['category2'] 
         post.save()
         return redirect('index')
 
