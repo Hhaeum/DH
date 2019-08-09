@@ -26,9 +26,11 @@
         .content aside{
             border-left:1px solid gray;
         }
+
         nav, aside{
+            padding:20px;
             flex-shrink: 0;
-            background-color:rgb(224 255 255)
+            background-color:rgb(255 255 255)
         }
         main{
             padding:20px;
@@ -67,6 +69,8 @@
         </section>
         <footer>
             <h1><a href="{%url 'index'%}">홈페이지</a></h1>
+            <a href="{%url 'daegu'%}"><button type="button">대구</button></a>
+            <a href="{%url 'gyeongsan'%}"><button type="button">경산</button></a>
         </footer>
     </div>
 </body>
