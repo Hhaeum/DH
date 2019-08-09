@@ -9,7 +9,7 @@ class Dongne1(models.Model):
     updated_at = models.DateField(auto_now = True)
     category = models.CharField(max_length=50,blank=True)
     # user = models.ForeignKey(User,on_delete=models.CASCADE)
-    pic=models.ImageField(upload_to="image/",null=True)
+    pic=models.ImageField(upload_to="images/",null=True)
 
 class Profile(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)

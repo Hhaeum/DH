@@ -21,10 +21,7 @@ def create(request):
         post.user = request.user
         post.title = request.POST['title']
         post.content = request.POST['content'] 
-        try:
-            post.pic = request.FILES['pic']
-        except:
-            pass
+        post.pic = request.FILES.get('pic','default')
         post.save()
         return redirect('index')
 
