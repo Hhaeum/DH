@@ -9,13 +9,11 @@
 
         <select name="category">
                 <option value="{{post.category}}">{{post.category}}</option>
-                {% if category == "문의" %}
-                <option value="문의">문의</option>
-                <option value="신고">신고</option>
+                {% if post.category == "문의" %}
+                    <option value="신고">신고</option>
                 {% endif %}
-                {% if category == "신고" %}
-                <option value="신고">신고</option>
-                <option value="문의">문의</option>
+                {% if post.category == "신고" %}
+                    <option value="문의">문의</option>
                 {% endif %}
         </select>
 
