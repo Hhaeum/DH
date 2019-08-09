@@ -93,9 +93,9 @@ def CSupdate(request,post_id):
 
     elif request.method == "POST":
         post = Dongne2.objects.get(id = post_id)
-        post.title = request.POST['title']
-        post.content = request.POST['content']
-        post.category=request.POST['category']
+        post.title2 = request.POST['title']
+        post.content2 = request.POST['content']
+        post.category2=request.POST['category']
         post.save()
 
         return redirect(index)
