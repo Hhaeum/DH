@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Dongne1
+
+from .models import Dongne2
 from django.core.paginator import Paginator
 
 def index(request):
@@ -41,7 +43,7 @@ def read(request,post_id):
     return render(request,'read.html',context)
 
 def CService(request): 
-    posts1 = Dongne2.objects.all()
+    posts1 = Dongne2()
     paginator = Paginator(posts1,5) 
     now_page = request.GET.get('page')
     posts1 = paginator.get_page(now_page)
