@@ -15,7 +15,6 @@ class Dongne1(models.Model):
     lng = models.FloatField(blank=True)
 
 class Dongne2(models.Model):
-    user2 = models.ForeignKey(User,on_delete=models.CASCADE)
     title2 = models.CharField(max_length = 200)
     content2 = models.TextField(blank = True)
     created_at2 = models.DateField(auto_now_add= True)
@@ -24,7 +23,7 @@ class Dongne2(models.Model):
     anonymous2 = models.BooleanField(default=False)
     # user = models.ForeignKey(User,on_delete=models.CASCADE)
     pic2=models.ImageField(upload_to="image/",null=True)
-    
+
 class Profile(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
     nickname=models.CharField(max_length=50,blank=True)
