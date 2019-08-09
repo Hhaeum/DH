@@ -7,14 +7,14 @@
     
         }
         </style>
-<h1>글 수정 페이지</h1>
+<img src="/static/DH3.png">
+<h1>글 수정</h1>
 <form action="{%url 'CSupdate' post.id%}" method="POST"> 
         {%csrf_token%}
         <p>글 제목</p>
         <input type="text" name="title" value = "{{post.title}}"> 
         <p>글 내용</p>
         <textarea name="content"cols="30" rows="10">{{post.content}}</textarea> 
-        <input type="submit" value="글 수정">
 
         <select name="category">
                 <option value="{{post.category}}">{{post.category}}</option>
@@ -25,5 +25,6 @@
                     <option value="문의">문의</option>
                 {% endif %}
         </select>
+        <input type="submit" value="글 수정">
 
 </form>

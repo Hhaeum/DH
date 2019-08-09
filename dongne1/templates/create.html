@@ -15,4 +15,7 @@
             <option value="경산">경산시</option>
         </select>
         <br><input type="submit" value="글쓰기">
+        {% if error %}
+                {{ error }}
+            {% endif %}
 </form>

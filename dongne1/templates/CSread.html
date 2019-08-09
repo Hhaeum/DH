@@ -4,7 +4,11 @@
             padding:20px;            
         }
         div{
-    
+            border:10px black;
+            border-style: solid solid solid solid;
+            border-width: 1.1px 1.1px 1.1px 1.1px;
+            border-color:black black black black;
+            padding:100px
         }
         </style>
 
@@ -15,14 +19,14 @@
     {%else%}
         <p>글쓴이 | {{post.user}}</p>
     {%endif%}
-<hr>
-{{post.content|linebreaksbr}}
-{%if post.pic%}
-    <img src="{{post.pic.url}}"> 
-{%endif%}
+
+<div>{{post.content|linebreaksbr}}
+        {%if post.pic%}
+        <img src="{{post.pic.url}}"> 
+    {%endif%}
+</div>
 <br>
 <br>
-<hr>
 <br>
 {% if request.user == post.user or requewt.user.is_staff %}
     <a href="{%url 'CSupdate' post.id%}"><button type="button">수정하기</button></a>
