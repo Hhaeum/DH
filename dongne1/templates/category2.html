@@ -12,10 +12,14 @@
     
         }
         </style>
-    <img src="/static/DH2.png">
+
     <br>
-    
-    <br><br><br>
+
+    {%if search_category2 == '그시절' %}
+        <img src="/static/그시절.png">
+    {%else%}
+        <img src="/static/오늘날.png">
+    {%endif%}<br>
     <div>
             {%for p in post%}
             <p>글 번호 | {{p.id}}</p>
