@@ -24,7 +24,7 @@ def create(request):
         try:
             post.pic = request.FILES['pic']
         except:
-            pass
+            
         post.save()
         return redirect('index')
 
@@ -37,7 +37,7 @@ def read(request,post_id):
 
 def CService(request): 
     posts1 = Dongne1.objects.all()
-    paginator = Paginator(posts1,30) 
+    paginator = Paginator(posts1,5) 
     now_page = request.GET.get('page')
     posts1 = paginator.get_page(now_page)
     context={ 
