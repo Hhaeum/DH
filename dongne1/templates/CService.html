@@ -1,9 +1,10 @@
 <h1>고객센터</h1>
-<a href="{%url 'index'%}"><button>돌아가기</button></a>
-<a href="{%url 'CScreate'%}"><button>글쓰기</button></a>
 {% for p in posts1 %}
     <p>글 번호: {{p.pk}}</p>
     <a href="{%url 'CSread' p.id %}"><p>제목: {{p.pk}}</p></a>
     <p>작성 시간: {{p.created_at}}</p>
 {% endfor %}
+
+<a href="{%url 'index'%}"><button>돌아가기</button></a>
+<a href="{%url 'CScreate'%}"><button>글쓰기</button></a>
 <!-- 익명기능 넣기(관리자에게는 보여야할텐데), 최신순으로 보이기 -->
