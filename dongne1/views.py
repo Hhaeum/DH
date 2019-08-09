@@ -64,7 +64,7 @@ def CScreate(request):
         post1.category=request.POST['category']
         post1.save()
 
-        return render(request,'CService.html')
+        return render(request,'index.html')
 
 def CSread(request,post_id): 
     post = Dongne1.objects.get(id = post_id)
@@ -72,4 +72,26 @@ def CSread(request,post_id):
         "post":post
     }
     return render(request,'CSread.html',context)
+
+def CSupdate(request,post_id):  
+    if request.method == "GET":
+        post1 = Dongne1.objects.get(id = post_id)
+        context = {
+            "posts1":posts1,
+        }
+        return render(request,'CSupdate.html',context)
+
+    elif request.method == "POST":
+        post1 = Dongne1.objects.get(id = post_id)
+        post1.title = request.POST['title']
+        post1.content = request.POST['content']
+        post1.category=request.POST['category']
+        post1.save()
+
+        return redirect(index)
+
+def CSdelete(request,post_id):
+    post1 = Dongne1.objects.get(id=post_id)
+    post1.delete()
+    return redirect(index)
 # Create your views here.

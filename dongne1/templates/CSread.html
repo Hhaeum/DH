@@ -1,14 +1,17 @@
 <p>글 제목 : {{post.title}}</p>
-<p>글쓴이:</p>
-{%if post1.anonymous == True%}
-            <p>익명</p>
-            {%else%}
-            <p>{{post1.user}}</p>
-            {%endif%}
+{%if post.anonymous == True%}
+        <p>글쓴이 : 익명</p>
+    {%else%}
+        <p>글쓴이 : {{post.user}}</p>
+    {%endif%}
 <p>글 내용</p>
 {{post.content|linebreaksbr}}
 {%if post.pic%}
     <img src="{{post.pic.url}}"> 
 {%endif%}
 <br>
-<a href="/"><button type="button" class="btn btn-outline-primary">돌아가기</button></a>
+{% if request.user == post.user or requewt.user.is_staff %}
+    <a href="{%url 'CSupdate' post.id%}"><button type="button">수정하기</button></a>
+    <a href="{%url 'CSdelete' post.id%}"><button type="button">삭제하기</button></a>
+    {%endif%}
+<a href="{%url 'CService'%}"><button type="button" class="btn btn-outline-primary">돌아가기</button></a>
