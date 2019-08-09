@@ -25,9 +25,9 @@ def create(request):
             if user is authenticated:
                 post.pic = request.FILES['pic']
                 post.save()
-                return redirect('index')
             else:
                 return render(request,'create.html',{'error': '로그인을 해주세요.'})
+        return redirect('index')
 
 
 def read(request,post_id): 
