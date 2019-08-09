@@ -14,7 +14,13 @@ def gyeongsan(request):
 
 def create(request): 
     if request.method == "GET":
-        return render(request,'create.html')
+        lat = request.GET['lat']
+        lng = request.GET['lng']
+        context={
+            "lat":lat,
+            "lng":lng,
+        }
+        return render(request,'create.html',context)
 
     elif request.method == "POST":
         post = Dongne1()
@@ -22,6 +28,8 @@ def create(request):
         post.title = request.POST['title']
         post.content = request.POST['content'] 
         post.pic = request.FILES.get('pic','default')
+        post.lng = request.POST['lng'] 
+        post.lat = request.POST['lat'] 
         post.save()
         return redirect('index')
 
