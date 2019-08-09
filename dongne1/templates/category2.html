@@ -1,16 +1,30 @@
-<br> <br>
-    <a href="/">돌아가기</a>
+
+<style>
+        body{
+            margin:50px;
+            padding:20px;          
+        }
+        div{
+            border:10px black;
+            border-style: ridge none solid none;
+            border-width: 3px 3px 3px 3px;
+            border-color:black black black black;
+    
+        }
+        </style>
+    <img src="/static/DH2.png">
+    <br>
+    
     <br><br><br>
-    {%for p in posts%}
-        <div align="right">
+    <div>
+            {%for p in post%}
             <p>글 번호 : {{p.id}}</p>
             <p>카테고리 {{p.category}} </p>
-            <a href ="{%url 'read' p.id%}" style="color:gray" id="hooow" ></a>글 제목 : {{p.title}}</a>
+            <a href="{%url 'read' p.id %}">{{p.title}}</a>
             <br>
-            <br>
-            <p>글 내용 : {{p.content|truncatewords:10}}</p>
             <p>글 작성 시간 : {{p.created_at}}</p>
-            <p>글 수정 시간 : {{p.updated_at}}</p>
             <hr>
         </div>
     {%endfor%}
+    </div>
+    <a href="{%url 'index'%}"><button>돌아가기</button></a>
