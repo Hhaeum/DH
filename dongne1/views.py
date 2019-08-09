@@ -54,6 +54,9 @@ def CScreate(request):
         post1.user=request.user
         post1.title = request.POST['title']
         post1.content = request.POST['content']
+        anonymous = request.POST.get('anonymous',False)  
+        if anonymous == "y":
+            post1.anonymous = True
         try:
             post1.pic=request.FILES['pic']
         except:

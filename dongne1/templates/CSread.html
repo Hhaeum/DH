@@ -1,5 +1,10 @@
 <p>글 제목 : {{post.title}}</p>
-<p>글쓴이 : {{post.user}}</p>
+<p>글쓴이:</p>
+{%if post1.anonymous == True%}
+            <p>익명</p>
+            {%else%}
+            <p>{{post1.user}}</p>
+            {%endif%}
 <p>글 내용</p>
 {{post.content|linebreaksbr}}
 {%if post.pic%}
