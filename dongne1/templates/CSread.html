@@ -30,7 +30,7 @@
 <br>
 <br>
 <br>
-{% if request2.user == post2.user or requewt.user.is_staff %}
+{% if request2.user == post2.user or request.user.is_staff %}
     <a href="{%url 'CSupdate' post.id%}"><button type="button">수정하기</button></a>
     <a href="{%url 'CSdelete' post.id%}"><button type="button">삭제하기</button></a>
     {%endif%}
